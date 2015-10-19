@@ -1,0 +1,31 @@
+$NetBSD patch-cl_reboot,v 1.0 2014/11/09 15:00:00 swib Exp $
+
+--- resources/OCF/Filesystem.orig	2008-08-18 12:32:19.000000000 +0000
++++ resources/OCF/Filesystem
+@@ -343,7 +343,7 @@ Filesystem_start()
+ 		return $OCF_SUCCESS
+ 	fi
+ 
+-	if [ "X${HOSTOS}" != "XOpenBSD" ];then
++	if [ "X${HOSTOS}" != "XOpenBSD" ] && [ "X${HOSTOS}" != "XNetBSD"];then
+ 		# Insert SCSI module
+ 		# TODO: This probably should go away. Why should the filesystem
+ 		# RA magically load a kernel module?
+@@ -602,7 +602,7 @@ Filesystem_stop()
+ 					# fuser returns a non-zero return code if none of the
+ 					# specified files is accessed or in case of a fatal 
+ 					# error.
+-					if [ "X${HOSTOS}" = "XOpenBSD" ];then
++					if [ "X${HOSTOS}" = "XOpenBSD" ] || [ "X${HOSTOS}" = "XNetBSD" ];then
+ 						PIDS=`fstat | grep ${SUB} | awk '{print $3}'`
+ 						for PID in ${PIDS};do
+ 							kill -s 9 ${PID}
+@@ -764,7 +764,7 @@ else
+ fi
+ 	
+ # Check to make sure the utilites are found
+-if [ "X${HOSTOS}" != "XOpenBSD" ];then
++if [ "X${HOSTOS}" != "XOpenBSD" ] && [ "X${HOSTOS}" != "XNetBSD" ];then
+ check_binary $MODPROBE
+ check_binary $FUSER
+ fi

@@ -1,0 +1,13 @@
+$NetBSD patch-cl_reboot,v 1.0 2014/09/08 19:22:20 swib Exp $
+
+--- lib/clplumbing/cl_reboot.c.org	2014-01-01 15:54:17.000000000 +0000
++++ lib/clplumbing/cl_reboot.c
+@@ -12,7 +12,7 @@
+ #include <clplumbing/cl_log.h>
+ #include <clplumbing/timers.h>
+ 
+-#define	REBOOT1ARG	1
++#define	REBOOT2ARG	1
+ 
+ enum rebootopt {
+ 	REBOOT_DEFAULT = 0,

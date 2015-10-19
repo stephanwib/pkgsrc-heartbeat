@@ -1,0 +1,22 @@
+$NetBSD patch-realtime,v 1.0 2014/09/08 19:22:20 swib Exp$
+
+--- ./lib/clplumbing/realtime.c.orig	2014-09-17 06:37:40.000000000 +0000
++++ ./lib/clplumbing/realtime.c
+@@ -183,7 +183,7 @@ cl_make_realtime(int spolicy, int priori
+ 		memset(&sp, 0, sizeof(sp));
+ 		sp.sched_priority = priority;
+ 
+-		if (sched_setscheduler(0, spolicy, &sp) < 0) {
++		if (sched_setscheduler(0, spolicy, &sp) == -1) {
+ 			cl_perror("Unable to set scheduler parameters.");
+ 		}
+ 	}
+@@ -243,7 +243,7 @@ cl_make_normaltime()
+ 
+ 	memset(&sp, 0, sizeof(sp));
+ 	sp.sched_priority = sched_get_priority_min(SCHED_OTHER);
+-	if (sched_setscheduler(0, SCHED_OTHER, &sp) < 0) {
++	if (sched_setscheduler(0, SCHED_OTHER, &sp) == -1) {
+ 		cl_perror("unable to (re)set scheduler parameters.");
+ 	}
+ #endif

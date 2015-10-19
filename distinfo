@@ -1,0 +1,9 @@
+$NetBSD distinfo,v 1.1 2014/11/09 15:02:20 swib Exp $
+
+SHA1 (aa909246edb3.tar.gz) = a46f670b745bb6967f7e7993a7cff6a7da0cabab
+RMD160 (aa909246edb3.tar.gz) = 3c744bb1a39cf414994c791c610b43f3c81e23ef
+Size (aa909246edb3.tar.gz) = 2393502 bytes
+SHA1 (patch-Filesystem) = 4b2356d376b43a40f15376031207c5914ad95e55
+SHA1 (patch-cl_reboot) = 50e2084f68f2a0fbaae43e34d47e7c91e1019012
+SHA1 (patch-cl_uuid) = 4fe7aef157737c476e5da21fefc55e3679b68acb
+SHA1 (patch-realtime) = b4cd8de3b5c961d42195a690bd85d15ae63e1bab
